@@ -73,7 +73,7 @@ def main():
             if hasattr(settings, 'SERVER_PASSIVE_PORTS'):
                 passive_ports = settings.SERVER_PASSIVE_PORTS
 
-        server = FTPServer(('', settings.SERVER_PORT), FTPHandler)
+        server = FTPServer((settings.SERVER_HOST, settings.SERVER_PORT), FTPHandler)
         server.max_cons = settings.SERVER_MAX_CONS
         server.max_cons_per_ip = settings.SERVER_MAX_CONS_PER_IP
         server.serve_forever()
